@@ -3,10 +3,36 @@
 <head>
     <title>Contoso Coffee demo</title>
     <script type="text/javascript">
-        function showAlert() {
+        function showAlert1() {
             const userInput = document.getElementById("userInput").value;
             alert("You entered: " + userInput);
         }
+
+        
+        function showAlert2(param){
+            alert("You clicked " + param)
+        }
+
+
+        (function (a, t, i) { var e = "MSCI"; var s = "Analytics"; var o = e + "queue"; a[o] = a[o] || []; var r = a[e] || function (n) { var t = {}; t[s] = {}; function e(e) { while (e.length) { var r = e.pop(); t[s][r] = function (e) { return function () { a[o].push([e, n, arguments]) } }(r) } } var r = "track"; var i = "set"; e([r + "Event", r + "View", r + "Action", i + "Config", i + "Property", i + "User", "initialize", "teardown"]); return t }(i.name); var n = i.name; if (!a[e]) { a[n] = r[s]; a[o].push(["new", n]); setTimeout(function () { var e = "script"; var r = t.createElement(e); r.async = 1; r.src = i.src; var n = t.getElementsByTagName(e)[0]; n.parentNode.insertBefore(r, n) }, 1) } else { a[n] = new r[s] } if (i.user) { a[n].setUser(i.user) } if (i.props) { for (var c in i.props) { a[n].setProperty(c, i.props[c]) } } a[n].initialize(i.cfg) })(window, document, {
+
+            src: "https://download.pi.dynamics.com/sdk/CI-SDKs/web/msci-1.1.0.js",
+            name: "MSCI",
+            cfg: {
+
+                ingestionKey: "e4278833994b4af59653cdf8a01b884e-a9390f11-8449-4390-9ce8-3fc146d2c0eb-7075",
+                endpointUrl: "https://mobile.events.data.microsoft.com/OneCollector/1.0/",
+                autoCapture: {
+                    view: true,
+                    click: true
+                },
+                orgInfo: {
+                    orgId: "7376099f-6df2-43dc-9665-05ca270d4fc9",
+                    orgTenantId: "3b4072cd-f30f-4a59-8029-a28e059061cd",
+                    orgGeo: "GBR"
+                }
+            }
+          });
     </script>
 </head>
 <body style="background-color:#B5927C;">
@@ -15,13 +41,13 @@
 <h1>Welcome to Contoso Coffee</h1>
 <h3>Download our fabulous espresso whitepaper</h3>
     <input type="text" id="userInput" placeholder="Enter something here">
-    <button id="button1" onclick="showAlert()">Click Me</button>
+    <button id="button1" onclick="showAlert1()">Click Me</button>
     <p>&nbsp;</p>
-    <p> <button id="button2" onclick="showAlert()">Button 2: I like cats</button></p>
-    <p> <button id="button3" onclick="showAlert()">Button 3: I like boats</button></p>
-    <p> <button id="button4" onclick="showAlert()">Button 4: I like travel</button></p>
+    <p> <button id="button2" onclick="showAlert2('button2')">Button 2: I like cats</button></p>
+    <p> <button id="button3" onclick="showAlert2('button3')">Button 3: I like boats</button></p>
+    <p> <button id="button4" onclick="showAlert2('button4')">Button 4: I like travel</button></p>
     <p> <a href="/page2.html">Link to Page 2</a></p>
-    <p> <a href="/page3.html">Link to Page 2</a></p>
+    <p> <a href="/page3.html">Link to Page 3</a></p>
 
 </body>
 </html>
